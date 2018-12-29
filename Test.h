@@ -17,7 +17,7 @@ private:
 	bool test_at() const;
 	bool test_push_back() const;
 	bool test_pop_back() const;
-	
+		
 	void getVector(MyVector) const;
 	MyVector createVector(const size_t) const;
 };

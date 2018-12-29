@@ -6,9 +6,9 @@ void Test::test() const {
 	test_push_back();
 	test_copy_ctor_1();
 	test_ctor_2();
-	//test_copy_ctor_2();
+	test_copy_ctor_2();
 	test_at();
-	//test_pop_back();
+	test_pop_back();
 }
 
 void Test::getVector(MyVector v) const {
@@ -151,7 +151,7 @@ bool Test::test_pop_back() const {
 	std::cout << "Test 7: ";
 	const size_t vec_size = 1024;
 	MyVector v = createVector(vec_size);
-
+	
 	for (size_t i = vec_size - 1; i > 5; --i){
 		v.pop_back();
 	}
@@ -159,7 +159,9 @@ bool Test::test_pop_back() const {
 	if (!check_error(v, 6, 1024)) { 
 		return false;
 	}
-
+	
 	std::cout << status_ok << std::endl;
 	return true;
 }
+
+
