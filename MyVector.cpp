@@ -9,9 +9,7 @@ MyVector::MyVector():
 	size(0),
 	capacity(32)
 {
-	while (capacity < size) {
-		capacity *= TWO;
-	}
+	growCapacity();
 	
 	parr = new int[capacity];
 	
@@ -23,9 +21,7 @@ MyVector::MyVector(int myVec[], const int user_size = 10):
 	size(user_size),
 	capacity(32)
 {
-	while (capacity < size) {
-		capacity *= TWO;
-	}
+	growCapacity();
 	
 	parr = new int[size];
 	for (int i = 0; i < size; ++i) {
@@ -40,9 +36,8 @@ MyVector::MyVector(const MyVector& copyArr) :
 	size(copyArr.size),
 	capacity(copyArr.capacity)
 {
-	while (capacity < size) {
-		capacity *= TWO;
-	}
+	growCapacity();
+
 	parr = new int[capacity];
 	for (int i = 0; i < copyArr.size; ++i) {
 		parr[i] = copyArr.parr[i];
@@ -56,9 +51,8 @@ MyVector::MyVector(MyVector&& moveArr) :
 	size(moveArr.size),
 	capacity(moveArr.capacity)
 {
-	while (capacity < size) {
-		capacity *= TWO;
-	}
+	growCapacity();
+	
 	parr = new int[size]; 
 	for (int i = 0; i < moveArr.size; ++i) {
 		parr[i] = moveArr.parr[i];
@@ -74,6 +68,12 @@ MyVector::~MyVector()
 {
 	delete[] parr;
 	--countNowVec;
+}
+
+void MyVector::growCapacity() {
+	while (capacity < size) {
+		capacity *= TWO;
+	}
 }
 
 int MyVector::getCountAllVec() {

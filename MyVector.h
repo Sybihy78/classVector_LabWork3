@@ -18,6 +18,8 @@ public:
 	MyVector(MyVector&&);
 	virtual ~MyVector();
 
+	void growCapacity(); //
+	
 	int getCountAllVec();
 	int getCountNowVec();
 
