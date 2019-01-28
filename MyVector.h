@@ -42,7 +42,7 @@ public:
 	bool operator>=(const MyVector&);
 	bool operator<=(const MyVector&);
 
-	//MyVector operator+(const MyVector& obj);
+	MyVector operator+(const MyVector& obj);
 };
 
 
