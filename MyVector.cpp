@@ -188,14 +188,11 @@ bool MyVector::operator>=(const MyVector& obj) {
 bool MyVector::operator<=(const MyVector& obj) {
 	return size <= obj.size;
 }
-/*
+
 MyVector MyVector::operator+(const MyVector& obj) {
 	MyVector tmp;
-	tmp.size = size + obj.size;
-	while (capacity < size) {
-		capacity *= TWO;
-	}
-	/*
+	growCapacity();
+	
 	for (int i = 0; i < size; ++i) {
 		tmp.push_back(parr[i]);
 	}
@@ -205,4 +202,11 @@ MyVector MyVector::operator+(const MyVector& obj) {
 	
 	return tmp;
 }
-*/
+
+std::ostream& operator<<(std::ostream& os, const MyVector& obj)
+{
+	for (int i = 0; i < obj.get_size(); ++i) {
+		os << obj.at(i) << ' ';
+	}
+	return os;
+}
